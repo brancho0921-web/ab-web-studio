@@ -248,6 +248,9 @@
     .project-points li { display: flex; gap: .68rem; color: #c5d5e7; }
     .project-points li::before { content: "↗"; color: var(--cyan); }
     .browser {
+      width: 100%;
+      max-width: 560px;
+      justify-self: end;
       overflow: hidden;
       border: 1px solid rgba(243, 201, 105, .32);
       border-radius: 1.15rem;
@@ -259,7 +262,13 @@
     .browser-top i { width: 7px; height: 7px; border-radius: 50%; background: #ff6c6c; }
     .browser-top i:nth-child(2) { background: var(--gold); }
     .browser-top i:nth-child(3) { background: var(--green); }
-    .browser img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .browser img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: #041735;
+    }
 
     .process-grid { position: relative; display: grid; gap: 1rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
     .process-grid::before { content: ""; position: absolute; top: 2.55rem; left: 15%; right: 15%; height: 1px; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--gold)); opacity: .5; }
@@ -337,7 +346,7 @@
       .cap-card:nth-child(2), .cap-card:nth-child(4) { transform: none; }
       .cap-card:nth-child(2):hover, .cap-card:nth-child(4):hover { transform: translateY(-5px); }
       .cap-card:last-child { grid-column: 1 / -1; }
-      .browser { transform: none; }
+      .browser { justify-self: center; transform: none; }
     }
     @media (max-width: 760px) {
       .site-header { height: 68px; }
@@ -480,7 +489,7 @@
         </div>
         <div class="browser" aria-label="Vista previa de la demo Navaja 58">
           <div class="browser-top" aria-hidden="true"><i></i><i></i><i></i></div>
-          <img src="assets/navaja-58-hero.png" width="1920" height="1080" loading="lazy" alt="Vista de la página demo Navaja 58 en una barbería moderna">
+          <img src="assets/navaja-58-mockup.png" width="1254" height="1254" loading="lazy" alt="Maqueta completa de la página Navaja 58 en computadora y teléfono">
         </div>
       </div>
     </section>
