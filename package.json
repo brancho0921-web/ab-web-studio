@@ -1,0 +1,9 @@
+{
+  "name": "ab-web-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "preview": "node preview.mjs",
+    "check": "node verify.mjs"
+  }
+}
