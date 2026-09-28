@@ -17,7 +17,7 @@ for (const value of required) {
   if (!html.includes(value)) throw new Error(`Falta contenido requerido: ${value}`);
 }
 
-for (const asset of ['assets/favicon.svg', 'assets/ab-web-studio-logo.png', 'assets/navaja-58-mockup.png', 'assets/brasa-nativa-mockup.webp']) {
+for (const asset of ['assets/favicon.svg', 'assets/ab-web-studio-logo.png', 'assets/navaja-58-mockup.png', 'assets/brasa-nativa-mockup-v2.webp']) {
   const info = await stat(asset);
   if (!info.isFile() || info.size === 0) throw new Error(`Activo inválido: ${asset}`);
 }
