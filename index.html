@@ -231,44 +231,36 @@
     .cap-icon svg { width: 22px; height: 22px; }
     .cap-card p { margin: 0; font-size: .91rem; }
 
-    .project-wrap {
-      display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      align-items: center;
-      gap: clamp(2.2rem, 6vw, 5rem);
-      padding: clamp(1.2rem, 3vw, 2.2rem);
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) * 1.35);
-      background: linear-gradient(130deg, rgba(56, 25, 102, .26), rgba(4, 27, 63, .72));
-      box-shadow: var(--shadow);
-    }
-    .project-kicker { color: var(--gold); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    .project-copy h2 { font-size: clamp(2.5rem, 5vw, 4.9rem); }
-    .project-points { list-style: none; margin: 1.5rem 0 2rem; padding: 0; display: grid; gap: .65rem; }
-    .project-points li { display: flex; gap: .68rem; color: #c5d5e7; }
-    .project-points li::before { content: "↗"; color: var(--cyan); }
-    .browser {
-      width: 100%;
-      max-width: 560px;
-      justify-self: end;
+    .projects-heading { display: grid; grid-template-columns: 1fr minmax(260px, 390px); align-items: end; gap: 2rem; margin-bottom: 2.2rem; }
+    .projects-heading h2 { max-width: 760px; margin-bottom: 0; }
+    .projects-heading p { margin: 0; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.35rem; }
+    .project-card {
+      --project-accent: var(--cyan);
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
       overflow: hidden;
-      border: 1px solid rgba(243, 201, 105, .32);
-      border-radius: 1.15rem;
-      background: #07090c;
-      box-shadow: 0 28px 70px rgba(0, 0, 0, .42);
-      transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) * 1.2);
+      background: linear-gradient(145deg, rgba(10, 37, 78, .9), rgba(4, 19, 46, .97));
+      box-shadow: var(--shadow);
+      transition: transform .3s ease, border-color .3s ease;
     }
-    .browser-top { display: flex; align-items: center; gap: .4rem; height: 38px; padding: 0 .8rem; border-bottom: 1px solid rgba(255,255,255,.08); background: #111820; }
-    .browser-top i { width: 7px; height: 7px; border-radius: 50%; background: #ff6c6c; }
-    .browser-top i:nth-child(2) { background: var(--gold); }
-    .browser-top i:nth-child(3) { background: var(--green); }
-    .browser img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: contain;
-      background: #041735;
-    }
+    .project-card:hover { transform: translateY(-6px); border-color: var(--project-accent); }
+    .project-card.brasa { --project-accent: #e26a3f; background: linear-gradient(145deg, rgba(66, 31, 22, .84), rgba(20, 17, 14, .97)); }
+    .project-card-media { position: relative; overflow: hidden; aspect-ratio: 1; background: #041735; }
+    .project-card-media::after { content: ""; position: absolute; inset: auto 0 0; height: 30%; background: linear-gradient(transparent, rgba(2, 12, 30, .56)); pointer-events: none; }
+    .project-card.brasa .project-card-media::after { background: linear-gradient(transparent, rgba(23, 14, 9, .48)); }
+    .project-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .project-card:hover .project-card-media img { transform: scale(1.025); }
+    .project-card-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: clamp(1.35rem, 3vw, 2rem); }
+    .project-kicker { color: var(--project-accent); font-size: .72rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .project-card h3 { margin: .5rem 0 .8rem; font-size: clamp(2rem, 4vw, 3.1rem); }
+    .project-card p { margin: 0; color: #c5d5e7; }
+    .project-card-meta { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.2rem 0 1.6rem; }
+    .project-card-meta span { padding: .38rem .62rem; border: 1px solid var(--project-accent); border-radius: 999px; color: #d8e4f2; font-size: .7rem; font-weight: 750; }
+    .project-card .button { margin-top: auto; }
 
     .process-grid { position: relative; display: grid; gap: 1rem; margin-top: 3rem; grid-template-columns: repeat(3, 1fr); }
     .process-grid::before { content: ""; position: absolute; top: 2.55rem; left: 15%; right: 15%; height: 1px; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--gold)); opacity: .5; }
@@ -336,7 +328,7 @@
     @keyframes breathe { 0%, 100% { transform: scale(.98); opacity: .62; } 50% { transform: scale(1.04); opacity: 1; } }
 
     @media (max-width: 980px) {
-      .hero-grid, .project-wrap, .faq-layout { grid-template-columns: 1fr; }
+      .hero-grid, .faq-layout { grid-template-columns: 1fr; }
       .hero { padding-top: 8rem; }
       .hero-copy { text-align: center; }
       .hero-copy > p, .hero h1 { margin-left: auto; margin-right: auto; }
@@ -346,7 +338,7 @@
       .cap-card:nth-child(2), .cap-card:nth-child(4) { transform: none; }
       .cap-card:nth-child(2):hover, .cap-card:nth-child(4):hover { transform: translateY(-5px); }
       .cap-card:last-child { grid-column: 1 / -1; }
-      .browser { justify-self: center; transform: none; }
+      .projects-heading { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       .site-header { height: 68px; }
@@ -379,7 +371,7 @@
       .orbit-chip.one { right: -3%; }
       .orbit-chip.two { left: -7%; }
       .orbit-chip.three { right: -3%; }
-      .cap-grid, .process-grid { grid-template-columns: 1fr; }
+      .cap-grid, .process-grid, .projects-grid { grid-template-columns: 1fr; }
       .cap-card { min-height: auto; }
       .cap-icon { margin-bottom: 1.5rem; }
       .cap-card:last-child { grid-column: auto; }
@@ -398,6 +390,8 @@
       .orbit-chip.three { display: none; }
       .contact-actions .button { width: 100%; }
       .contact-meta { align-items: center; flex-direction: column; }
+      .project-card-body { padding: 1.25rem; }
+      .project-card .button { width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -418,7 +412,7 @@
       </button>
       <div class="nav-links" id="navLinks">
         <a href="#soluciones">Soluciones</a>
-        <a href="#proyecto">Proyecto</a>
+        <a href="#proyecto">Proyectos</a>
         <a href="#proceso">Proceso</a>
         <a href="#preguntas">Preguntas</a>
         <a class="nav-cta" href="#contacto">Hablemos</a>
@@ -438,7 +432,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9A8.4 8.4 0 1 1 20.5 11.6Z"/><path d="M8.2 8.1c.2-.5.5-.5.8-.5h.4c.1 0 .3 0 .5.4l.7 1.8c.1.3 0 .5-.1.7l-.5.6c-.2.2-.3.4-.1.7.4.8 1 1.5 1.8 2 .3.2.5.2.7 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.5.2.5.4 0 .2-.1 1-.6 1.5-.5.6-1.3.9-2.1.7-1-.2-2.3-.7-3.8-2-1.2-1.1-2.1-2.4-2.4-3.4-.4-1.2 0-2 .2-2.5Z"/></svg>
               Cuéntanos tu idea
             </a>
-            <a class="button secondary" href="#proyecto">Ver proyecto destacado <span aria-hidden="true">↘</span></a>
+            <a class="button secondary" href="#proyecto">Ver proyectos <span aria-hidden="true">↘</span></a>
           </div>
           <div class="hero-note" aria-label="Características principales">
             <span><i></i>Diseño adaptable</span>
@@ -475,21 +469,36 @@
     </section>
 
     <section class="section" id="proyecto">
-      <div class="container project-wrap reveal">
-        <div class="project-copy">
-          <span class="project-kicker">Proyecto destacado</span>
-          <h2>Navaja 58</h2>
-          <p>Una demo de barbería con una imagen elegante, información fácil de encontrar y llamadas a la acción visibles desde cualquier pantalla.</p>
-          <ul class="project-points">
-            <li>Servicios, precios y horarios organizados</li>
-            <li>Galería visual y ubicación</li>
-            <li>Acceso directo a WhatsApp</li>
-          </ul>
-          <a class="button secondary" href="https://brancho0921-web.github.io/navaja-58-demo/" target="_blank" rel="noopener noreferrer">Explorar la demo <span aria-hidden="true">↗</span></a>
+      <div class="container">
+        <div class="projects-heading reveal">
+          <div><span class="eyebrow">Proyectos destacados</span><h2>Demos que ayudan a imaginar tu próximo sitio.</h2></div>
+          <p>Dos experiencias completas, creadas para mostrar cómo una página puede adaptarse a la personalidad y los objetivos de cada negocio.</p>
         </div>
-        <div class="browser" aria-label="Vista previa de la demo Navaja 58">
-          <div class="browser-top" aria-hidden="true"><i></i><i></i><i></i></div>
-          <img src="assets/navaja-58-mockup.png" width="1254" height="1254" loading="lazy" alt="Maqueta completa de la página Navaja 58 en computadora y teléfono">
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <a class="project-card-media" href="https://brancho0921-web.github.io/navaja-58-demo/" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo Navaja 58">
+              <img src="assets/navaja-58-mockup.png" width="1254" height="1254" loading="lazy" alt="Navaja 58 mostrada en una computadora y un teléfono">
+            </a>
+            <div class="project-card-body">
+              <span class="project-kicker">Demo para barberías</span>
+              <h3>Navaja 58</h3>
+              <p>Una presencia elegante con servicios, galería, horarios y contacto directo, organizada para convertir visitas en reservas.</p>
+              <div class="project-card-meta" aria-label="Características"><span>Servicios</span><span>Galería</span><span>WhatsApp</span></div>
+              <a class="button secondary" href="https://brancho0921-web.github.io/navaja-58-demo/" target="_blank" rel="noopener noreferrer">Ver demo <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="project-card brasa reveal">
+            <a class="project-card-media" href="https://brancho0921-web.github.io/brasa-nativa-demo/" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo Brasa Nativa">
+              <img src="assets/brasa-nativa-mockup.webp" width="1254" height="1254" loading="lazy" alt="Brasa Nativa mostrada en una computadora y un teléfono con una escena de cocina a la brasa">
+            </a>
+            <div class="project-card-body">
+              <span class="project-kicker">Demo para restaurantes</span>
+              <h3>Brasa Nativa</h3>
+              <p>Una experiencia gastronómica moderna con menú interactivo, reservas y un diseño audiovisual que abre el apetito.</p>
+              <div class="project-card-meta" aria-label="Características"><span>Menú interactivo</span><span>Reservas</span><span>Video</span></div>
+              <a class="button secondary" href="https://brancho0921-web.github.io/brasa-nativa-demo/" target="_blank" rel="noopener noreferrer">Ver demo <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
