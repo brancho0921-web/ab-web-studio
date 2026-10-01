@@ -249,6 +249,14 @@
     }
     .project-card:hover { transform: translateY(-6px); border-color: var(--project-accent); }
     .project-card.brasa { --project-accent: #e26a3f; background: linear-gradient(145deg, rgba(66, 31, 22, .84), rgba(20, 17, 14, .97)); }
+    .project-card.lumina {
+      --project-accent: #9ef1e4;
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr);
+      background: linear-gradient(145deg, rgba(16, 52, 49, .9), rgba(3, 15, 17, .98));
+    }
+    .project-card.lumina .project-card-media { aspect-ratio: 1.12; }
     .project-card-media { position: relative; overflow: hidden; aspect-ratio: 1; background: #041735; }
     .project-card-media::after { content: ""; position: absolute; inset: auto 0 0; height: 30%; background: linear-gradient(transparent, rgba(2, 12, 30, .56)); pointer-events: none; }
     .project-card.brasa .project-card-media::after { height: 14%; background: linear-gradient(transparent, rgba(23, 14, 9, .14)); }
@@ -372,6 +380,8 @@
       .orbit-chip.two { left: -7%; }
       .orbit-chip.three { right: -3%; }
       .cap-grid, .process-grid, .projects-grid { grid-template-columns: 1fr; }
+      .project-card.lumina { grid-column: auto; display: flex; }
+      .project-card.lumina .project-card-media { aspect-ratio: 1; }
       .cap-card { min-height: auto; }
       .cap-icon { margin-bottom: 1.5rem; }
       .cap-card:last-child { grid-column: auto; }
@@ -472,7 +482,7 @@
       <div class="container">
         <div class="projects-heading reveal">
           <div><span class="eyebrow">Proyectos destacados</span><h2>Demos que ayudan a imaginar tu próximo sitio.</h2></div>
-          <p>Dos experiencias completas, creadas para mostrar cómo una página puede adaptarse a la personalidad y los objetivos de cada negocio.</p>
+          <p>Tres experiencias completas, creadas para mostrar cómo una página puede adaptarse a la personalidad y los objetivos de cada negocio.</p>
         </div>
         <div class="projects-grid">
           <article class="project-card reveal">
@@ -497,6 +507,18 @@
               <p>Una experiencia gastronómica moderna con menú interactivo, reservas y un diseño audiovisual que abre el apetito.</p>
               <div class="project-card-meta" aria-label="Características"><span>Menú interactivo</span><span>Reservas</span><span>Video</span></div>
               <a class="button secondary" href="https://brancho0921-web.github.io/brasa-nativa-demo/" target="_blank" rel="noopener noreferrer">Ver demo <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="project-card lumina reveal">
+            <a class="project-card-media" href="https://brancho0921-web.github.io/lumina-dental-demo/" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo Lúmina Dental">
+              <img src="assets/lumina-dental-mockup.png" width="1254" height="1254" loading="lazy" alt="Lúmina Dental presentada en una computadora y un teléfono">
+            </a>
+            <div class="project-card-body">
+              <span class="project-kicker">Demo para clínicas dentales</span>
+              <h3>Lúmina Dental</h3>
+              <p>Una experiencia clínica elegante y humana, con tratamientos interactivos, proceso claro y una agenda diseñada para iniciar la conversación.</p>
+              <div class="project-card-meta" aria-label="Características"><span>Tratamientos</span><span>Experiencia responsive</span><span>Agenda</span></div>
+              <a class="button secondary" href="https://brancho0921-web.github.io/lumina-dental-demo/" target="_blank" rel="noopener noreferrer">Ver demo <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         </div>

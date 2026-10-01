@@ -9,6 +9,7 @@ const required = [
   'https://www.instagram.com/estudioabweb/',
   'https://brancho0921-web.github.io/navaja-58-demo/',
   'https://brancho0921-web.github.io/brasa-nativa-demo/',
+  'https://brancho0921-web.github.io/lumina-dental-demo/',
   '+58 426 972 6771',
   '3 y 6 días hábiles'
 ];
@@ -17,7 +18,7 @@ for (const value of required) {
   if (!html.includes(value)) throw new Error(`Falta contenido requerido: ${value}`);
 }
 
-for (const asset of ['assets/favicon.svg', 'assets/ab-web-studio-logo.png', 'assets/navaja-58-mockup.png', 'assets/brasa-nativa-mockup-v3.webp']) {
+for (const asset of ['assets/favicon.svg', 'assets/ab-web-studio-logo.png', 'assets/navaja-58-mockup.png', 'assets/brasa-nativa-mockup-v3.webp', 'assets/lumina-dental-mockup.png']) {
   const info = await stat(asset);
   if (!info.isFile() || info.size === 0) throw new Error(`Activo inválido: ${asset}`);
 }

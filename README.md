@@ -1,6 +1,6 @@
 # AB Web Studio — landing oficial
 
-Landing estática, móvil primero y sin dependencias externas. Incluye la identidad de AB Web Studio, servicios esenciales, las demos Navaja 58 y Brasa Nativa, proceso, preguntas frecuentes y medios de contacto.
+Landing estática, móvil primero y sin dependencias externas. Incluye la identidad de AB Web Studio, servicios esenciales, las demos Navaja 58, Brasa Nativa y Lúmina Dental, proceso, preguntas frecuentes y medios de contacto.
 
 ## Vista local
 
