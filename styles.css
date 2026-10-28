@@ -91,7 +91,9 @@ p { text-wrap: pretty; }
 .js .has-stage .stage { display: grid; }
 .js .has-stage .cards { display: none; }
 .stage { grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr); grid-template-rows: 1fr auto; gap: 24px 4vw; align-items: center; height: 100svh; padding: 90px var(--pad) 40px; }
-.demo-name { font-size: clamp(3rem, 1rem + 4.6vw, 6.4rem); letter-spacing: -.055em; margin: 14px 0 8px; white-space: nowrap; min-height: 1em; }
+/* el nombre más largo ("Sharp Society") cabe siempre en su columna, sin meterse bajo la laptop */
+.stage-copy { position: relative; z-index: 2; container-type: inline-size; }
+.demo-name { font-size: min(6.4rem, 15cqi); letter-spacing: -.055em; margin: 14px 0 8px; white-space: nowrap; min-height: 1em; }
 .demo-name .type-caret { display: inline-block; width: .07em; height: .82em; background: var(--black); vertical-align: -.04em; margin-left: .03em; }
 .demo-feats { list-style: none; padding: 0; margin: 30px 0 34px; display: grid; gap: 12px; }
 .demo-feats li { display: flex; gap: 12px; font-size: 1.05rem; }
