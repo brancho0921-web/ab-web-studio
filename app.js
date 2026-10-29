@@ -22,9 +22,9 @@ $$('a', nav).forEach((a) => a.addEventListener('click', closeMenu));
 
 // Datos de las demos
 const DEMOS = [
-  { name: 'Sharp Society', kind: 'Barbería', url: 'https://brancho0921-web.github.io/navaja-58-demo/', feats: ['Navaja 3D que acompaña el recorrido', 'Vitrina de cortes con transición de tajo', 'Reserva por WhatsApp con el corte elegido'] },
-  { name: 'Ceniza', kind: 'Restaurante', url: 'https://brancho0921-web.github.io/brasa-nativa-demo/', feats: ['Brasas en 3D que se apartan del cursor', 'Carta que se abre como un libro', 'Pedidos con total y dirección por WhatsApp'] },
-  { name: 'Molar Studio', kind: 'Clínica dental', url: 'https://brancho0921-web.github.io/lumina-dental-demo/', feats: ['Muela 3D que se abre por capas', 'La caries se cura con el scroll', 'Citas por WhatsApp con día y hora'] },
+  { name: 'Sharp Society', kind: 'Barbería', url: 'https://brancho0921-web.github.io/sharp-society/', feats: ['Navaja 3D que acompaña el recorrido', 'Vitrina de cortes con transición de tajo', 'Reserva por WhatsApp con el corte elegido'] },
+  { name: 'Ceniza', kind: 'Restaurante', url: 'https://brancho0921-web.github.io/ceniza/', feats: ['Brasas en 3D que se apartan del cursor', 'Carta que se abre como un libro', 'Pedidos con total y dirección por WhatsApp'] },
+  { name: 'Molar Studio', kind: 'Clínica dental', url: 'https://brancho0921-web.github.io/molar-studio/', feats: ['Muela 3D que se abre por capas', 'La caries se cura con el scroll', 'Citas por WhatsApp con día y hora'] },
 ];
 
 // Videos: solo corren los que se ven
